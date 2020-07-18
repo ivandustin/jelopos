@@ -1,0 +1,11 @@
+.tabs > div {
+    color: grey;
+    cursor: pointer;
+    padding: 0.5em 0;
+    font-size: 1.4em;
+}
+
+.tabs > div.selected {
+    color: inherit;
+    font-weight: bold;
+}

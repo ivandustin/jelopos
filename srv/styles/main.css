@@ -1,0 +1,62 @@
+body {
+    font-family: Arial;
+}
+
+h1 {
+    text-transform: capitalize;
+}
+
+.trace, .trace * {
+    outline: 1px dashed green;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.number {
+    text-align: right !important;
+    font-weight: bold !important;
+}
+
+.wide {
+    width: 100%;
+}
+
+.big {
+    font-size: 2em;
+}
+
+.space {
+    margin: 2% 0;
+}
+
+.borderless {
+    border: 0;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+@media print {
+    .unprint {
+        display: none;
+    }
+}

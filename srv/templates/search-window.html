@@ -1,0 +1,42 @@
+<div class="search-window">
+    <form ng-submit="submit()">
+        <table class="tidy uppercase-key"
+                ng-if="attributeSearch">
+            <tbody>
+                <tr ng-repeat="column in columns">
+                    <td width="20%">{{column.name}}</td>
+                    <td>
+                        <input  type="text"
+                                ng-model="searchAttributes[column.name]"
+                                list="{{column.name}}-list">
+                        <datalist id="{{column.name}}-list">
+                            <option ng-repeat="value in transposed[column.name]"
+                                    value="{{value}}"></option>
+                        </datalist>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input ng-if="!attributeSearch"
+                type="text"
+                ng-model="$parent.search"
+                autocomplete="off" 
+                placeholder="Search" 
+                ng-change="selected = 0">
+        <table>
+            <thead class="capitalize">
+                <tr>
+                    <th ng-repeat="column in columns">{{column.name}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in rows | filter:search | filter:searchAttributes" 
+                    ng-class="{ selected: $index == selected }" 
+                    virtual-id="{{row.__virtual_id__}}">
+                   <td ng-repeat="column in columns">{{row[column.name]}}</td> 
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none">
+    </form>
+</div>

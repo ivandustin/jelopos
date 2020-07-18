@@ -1,0 +1,32 @@
+{{#api}}
+<div ng-if="$routeParams.id == '{{table}}'">
+    <h1>{{title}}</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                {{#columns}}
+                <th>{{title}}</th>
+                {{/columns}}
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    {{#columns}}
+                    <td>
+                        {{#internal}}
+                            {{=<% %>=}}
+                                {{ entry.<%name%> <%#datetime%> | datetime <%/datetime%> }}
+                            <%={{ }}=%>
+                        {{/internal}}
+
+                        {{^internal}}
+                            <input type="text" ng-model="entry.{{name}}" ng-change="select(entry)" {{#required}}required{{/required}} {{#integer}}pattern="^-?\d*"{{/integer}} {{#real}}pattern="^-?\d*\.?\d*$"{{/real}}>
+                        {{/internal}}
+                    </td>
+                    {{/columns}}
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+{{/api}}

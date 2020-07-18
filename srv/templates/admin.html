@@ -1,0 +1,485 @@
+<div ng-if="$routeParams.id == 'customer'">
+    <h1>customer</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>name</th>
+                <th>address</th>
+                <th>contact</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.name" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.address" ng-change="select(entry)"   >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.contact" ng-change="select(entry)"   >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+<div ng-if="$routeParams.id == 'sale'">
+    <h1>sale</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>created at</th>
+                <th>customer id</th>
+                <th>job order</th>
+                <th>weight</th>
+                <th>username</th>
+                <th>note</th>
+                <th>terms</th>
+                <th>void</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+                                {{ entry.created_at  | datetime  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.customer_id" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.job_order" ng-change="select(entry)"  pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.weight" ng-change="select(entry)"   pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.username" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.note" ng-change="select(entry)"   >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.terms" ng-change="select(entry)"   >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.void" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+<div ng-if="$routeParams.id == 'item'">
+    <h1>item</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>created at</th>
+                <th>name</th>
+                <th>size</th>
+                <th>unit</th>
+                <th>qty</th>
+                <th>weight</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+                                {{ entry.created_at  | datetime  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.name" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.size" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.unit" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.qty" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.weight" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+<div ng-if="$routeParams.id == 'coil_design'">
+    <h1>coil design</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>design</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.design" ng-change="select(entry)" required  >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+<div ng-if="$routeParams.id == 'coil'">
+    <h1>coil</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>created at</th>
+                <th>color</th>
+                <th>thickness</th>
+                <th>width</th>
+                <th>length</th>
+                <th>weight</th>
+                <th>serial</th>
+                <th>code</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+                                {{ entry.created_at  | datetime  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.color" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.thickness" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.width" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.length" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.weight" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.serial" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.code" ng-change="select(entry)" required  >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+<div ng-if="$routeParams.id == 'precut_coil'">
+    <h1>precut coil</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>created at</th>
+                <th>design</th>
+                <th>color</th>
+                <th>thickness</th>
+                <th>width</th>
+                <th>length</th>
+                <th>code</th>
+                <th>qty</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+                                {{ entry.created_at  | datetime  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.design" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.color" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.thickness" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.width" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.length" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.code" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.qty" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+<div ng-if="$routeParams.id == 'sale_item'">
+    <h1>sale item</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>created at</th>
+                <th>sale id</th>
+                <th>name</th>
+                <th>size</th>
+                <th>qty</th>
+                <th>price</th>
+                <th>item id</th>
+                <th>void</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+                                {{ entry.created_at  | datetime  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.sale_id" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.name" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.size" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.qty" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.price" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.item_id" ng-change="select(entry)"  pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.void" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+<div ng-if="$routeParams.id == 'sale_coil'">
+    <h1>sale coil</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>created at</th>
+                <th>sale id</th>
+                <th>design</th>
+                <th>color</th>
+                <th>thickness</th>
+                <th>width</th>
+                <th>code</th>
+                <th>length</th>
+                <th>qty</th>
+                <th>price</th>
+                <th>void</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+                                {{ entry.created_at  | datetime  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.sale_id" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.design" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.color" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.thickness" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.width" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.code" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.length" ng-change="select(entry)" required  >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.qty" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.price" ng-change="select(entry)" required  pattern="^-?\d*\.?\d*$">
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.void" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+<div ng-if="$routeParams.id == 'job_order_coil'">
+    <h1>job order_coil</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>created at</th>
+                <th>job order</th>
+                <th>coil id</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+                                {{ entry.created_at  | datetime  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.job_order" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.coil_id" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>
+<div ng-if="$routeParams.id == 'job_order_precut_coil'">
+    <h1>job order_precut_coil</h1>
+    <form ng-submit="submit()">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>created at</th>
+                <th>job order</th>
+                <th>precut coil_id</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entries | orderBy:'-id'">
+                    <td>
+                                {{ entry.id  }}
+
+                    </td>
+                    <td>
+                                {{ entry.created_at  | datetime  }}
+
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.job_order" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                    <td>
+
+                            <input type="text" ng-model="entry.precut_coil_id" ng-change="select(entry)" required pattern="^-?\d*" >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" style="display: none;">
+    </form>
+</div>

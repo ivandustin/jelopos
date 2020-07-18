@@ -1,0 +1,8 @@
+#!/bin/bash
+root=$(dirname "$0")/..
+. "$root/etc/profile"
+node "$root/index.js" &
+JELOPOS_PID=$!
+echo $JELOPOS_PID > /tmp/jelopos.pid
+wait $JELOPOS_PID
+

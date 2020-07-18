@@ -1,0 +1,33 @@
+module.exports = function(app, db) {
+    {{#api}}
+    app.get('{{{url}}}', function(req, res) {
+        var st = db.prepare('SELECT * FROM {{table}} ORDER BY id DESC LIMIT 100')
+        res.send(st.all())
+    })
+
+    app.get('{{{url}}}/:id', function(req, res) {
+        var st = db.prepare('SELECT * FROM {{table}} WHERE id = ?')
+        var row = st.get(req.params.id)
+        if (!row)
+            res.status(HTTP_NOT_FOUND)
+        res.send(row)
+    })
+
+    app.post('{{{url}}}', function(req, res) {
+        var st = db.prepare('INSERT INTO {{table}}({{#columns}}{{^internal}}{{name}}, {{/internal}}{{/columns}}) VALUES ({{#columns}}{{^internal}}?, {{/internal}}{{/columns}})')
+        var info = st.run({{#columns}}{{^internal}}req.fields.{{name}}, {{/internal}}{{/columns}})
+        if (info.changes == 0)
+            res.status(HTTP_BAD_REQUEST)
+        var row = db.prepare('SELECT * FROM {{table}} WHERE id = ?').get(info.lastInsertRowid)
+        res.send(row)
+    })
+
+    app.put('{{{url}}}/:id', function(req, res) {
+        var st = db.prepare('UPDATE {{table}} SET {{#columns}}{{^internal}}{{name}} = ?, {{/internal}}{{/columns}} WHERE id = ?')
+        var info = st.run({{#columns}}{{^internal}}req.fields.{{name}}, {{/internal}}{{/columns}}req.params.id)
+        if (info.changes == 0)
+            res.status(HTTP_BAD_REQUEST)
+        res.send(req.fields)
+    })
+    {{/api}}
+}

@@ -1,0 +1,144 @@
+<div>
+    <search-window ng-if="searchDesigns"
+                    rows="designs" 
+                    columns="designColumns" 
+                    on-submit="selectDesign"></search-window>
+    <search-window ng-if="searchCoils" 
+                    attribute-search="true" 
+                    rows="coils" 
+                    columns="coilColumns" 
+                    on-submit="selectCoil"></search-window>
+    <search-window ng-if="searchItems" 
+                    rows="items" 
+                    columns="itemColumns" 
+                    on-submit="selectItem"></search-window>
+    <h1 class="uppercase center">{{sale.void ? 'void' : 'order slip'}}</h1>
+    <form id="order-slip"
+            ng-submit="submit()">
+        <div class="flex row even">
+            <div>
+                <table style="width: initial;" 
+                        class="colon borderless tidy uppercase-key capitalize">
+                    <tbody>
+                        <tr class="bold">
+                            <td>sold to</td>
+                            <td>
+                                <input type="text" 
+                                        list="customer-list" 
+                                        ng-model="customer.name" 
+                                        ng-change="findCustomer(customer.name)" 
+                                        required 
+                                        autofocus>
+                                <datalist id="customer-list">
+                                    <option ng-repeat="customer in customers" 
+                                            value="{{customer.name}}"></option>
+                                </datalist>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>address</td>
+                            <td><input type="text" ng-model="customer.address"></td>
+                        </tr>
+                        <tr>
+                            <td>tel no</td>
+                            <td><input type="text" ng-model="customer.contact"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="flex row reverse">
+                <table style="width: initial;" class="colon borderless tidy uppercase-key capitalize">
+                    <tbody>
+                        <tr class="bold uppercase">
+                            <td colspan="2" class="nocolon">{{ (sale.id | orderid) || '-' }}</td>
+                        </tr>
+                        <tr>
+                            <td>date</td>
+                            <td>{{date(sale.created_at) || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td>terms</td>
+                            <td><input type="text" ng-model="sale.terms"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <table class="center bold" ng-if="$routeParams.id">
+                <thead class="uppercase">
+                    <th width="5%">no.</th>
+                    <th width="50%">description</th>
+                    <th width="10%">qty.</th>
+                    <th width="15%">unit/pc</th>
+                    <th width="20%">total amount</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="sale in sales | orderBy:'+created_at'" ng-class="{ unprint: sale.void === 1 }">
+                        <td ng-class="{ strike: sale.void }">{{$index + 1}}</td>
+                        <td ng-class="{ strike: sale.void }">{{description(sale)}}</td>
+                        <td><input type="number" ng-model="sale.qty" class="number" id="sale-{{$index + 1}}"></td>
+                        <td><input type="text" ng-model="sale.price" class="number" ui-number-mask="2"></td>
+                        <td ng-class="{ strike: sale.void }" class="number">{{(sale.price * sale.qty) | number:2}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div class="flex row">
+            <div class="flex-6">
+                <table class="colon borderless capitalize uppercase-key tidy">
+                    <tbody>
+                        <tr>
+                            <td width="10%">address</td>
+                            <td>maharlika highway, brgy. bukal, pagbilao, quezon</td>
+                        </tr>
+                        <tr>
+                            <td>contact</td>
+                            <td>(042) 373-00-33 / 0929-177-5597</td>
+                        </tr>
+                        <tr>
+                            <td>jo</td>
+                            <td><input type="number" ng-model="sale.job_order"></td>
+                        </tr>
+                        <tr>
+                            <td>kg</td>
+                            <td><input type="number" step="0.01" ng-model="sale.weight"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold">note</td>
+                            <td><input type="text" ng-model="sale.note"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="flex-4">
+                <table class="colon borderless tidy capitalize underline">
+                    <tbody>
+                        <tr>
+                            <td class="bold uppercase">total</td>
+                            <td width="60%" class="number">{{total() | number:2}}</td>
+                        </tr>
+                        <tr style="visibility: hidden;">
+                            <td>hidden</td>
+                            <td style="border: none;"></td>
+                        </tr>
+                        <tr>
+                            <td>prepared by</td>
+                            <td><input type="text" disabled ng-model="sale.username" required class="bold capitalize"></td>
+                        </tr>
+                        <tr>
+                            <td>checked by</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>received by</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <input type="submit" name="" style="display: none;">
+    </form>
+</div>

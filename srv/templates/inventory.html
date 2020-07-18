@@ -1,0 +1,24 @@
+<div>
+    <h1>{{title}}</h1>
+    <div ng-if="filters" class="tabs flex row even">
+        <div ng-repeat="filter in filters"
+                class="center uppercase"
+                ng-class="{ selected: filter.name == selected_filter.name }"
+                ng-click="select_filter(filter)">
+            {{filter.name}}
+        </div>
+    </div>
+    <input type="text" ng-model="search" placeholder="Search" class="wide big space borderless" autofocus ng-change="selected = 0">
+    <table>
+        <thead>
+            <tr>
+                <th ng-repeat="field in fields" ng-click="sortBy(field.name)">{{field.name.replace('_', ' ')}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in rows | orderBy:sortProperty:sortOrder | filter:search | filter:selected_filter.filterfn">
+                <td ng-repeat="field in fields">{{field.fn ? field.fn(row[field.name]) : row[field.name]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

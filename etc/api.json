@@ -1,0 +1,42 @@
+[
+    {
+        "url": "/api/customer",
+        "table": "customer"
+    },
+    {
+        "url": "/api/sale",
+        "table": "sale"
+    },
+    {
+        "url": "/api/item",
+        "table": "item"
+    },
+    {
+        "url": "/api/coil_design",
+        "table": "coil_design"
+    },
+    {
+        "url": "/api/coil",
+        "table": "coil"
+    },
+    {
+        "url": "/api/precut-coil",
+        "table": "precut_coil"
+    },
+    {
+        "url": "/api/sale-item",
+        "table": "sale_item"
+    },
+    {
+        "url": "/api/sale-coil",
+        "table": "sale_coil"
+    },
+    {
+        "url": "/api/job_order_coil",
+        "table": "job_order_coil"
+    },
+    {
+        "url": "/api/job_order_precut_coil",
+        "table": "job_order_precut_coil"
+    }
+]

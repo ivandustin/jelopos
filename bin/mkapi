@@ -1,0 +1,7 @@
+#!/bin/bash
+root=$(dirname "$0")/..
+read-tables "$root/lib/schema.sql" > "$root/etc/tables"
+node "$root/libexec/api-config.js"
+mustache "$root/etc/api-config.json" "$root/lib/api.js.mustache" | sed "s/,  / /g" | sed "s/, )/)/g" > "$root/lib/api.js"
+mustache "$root/etc/api-config.json" "$root/lib/admin.html.mustache" > "$root/srv/templates/admin.html"
+mustache "$root/etc/api-config.json" "$root/lib/admin.js.mustache" > "$root/srv/scripts/admin.js"

@@ -1,0 +1,31 @@
+<div id="page-job-order">
+    <h1>Job Orders</h1>
+    <div>
+        <div ng-repeat="day in days" class="day">
+            <h2>{{day.id}}</h2>
+            <div ng-repeat="jobOrder in day.jobOrders">
+                <h3>JO #{{jobOrder.id}}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Created At</th>
+                            <th>Color</th>
+                            <th>Code</th>
+                            <th>Serial</th>
+                            <th>Length</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="coil in jobOrder.coils">
+                            <td>{{datetime(coil.created_at)}}</td>
+                            <td>{{coil.color}}</td>
+                            <td>{{coil.code}}</td>
+                            <td>{{coil.serial}}</td>
+                            <td style="text-align: right;">{{coil.length * -1}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

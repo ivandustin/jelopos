@@ -1,0 +1,4 @@
+#!/bin/bash
+root=$(dirname "$0")/..
+db="$root/var/jelopos.db"
+sqlite3 "$db" .dump > "$root/lib/backup.sql"

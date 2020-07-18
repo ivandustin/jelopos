@@ -1,0 +1,5 @@
+#!/bin/bash
+export JELOPOS_ROOT="."
+export JELOPOS_DATA="./var"
+export JELOPOS_DB="$JELOPOS_ROOT/var/jelopos.db"
+export PATH="$JELOPOS_ROOT/bin":$PATH

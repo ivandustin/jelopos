@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <base href="/" />
+    <title>Jelopos</title>
+    <link rel="stylesheet" type="text/css" href="/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="/styles/table.css">
+    <link rel="stylesheet" type="text/css" href="/styles/flex.css">
+    <link rel="stylesheet" type="text/css" href="/styles/search-window.css">
+    <link rel="stylesheet" type="text/css" href="/styles/tabs.css">
+    <link rel="stylesheet" type="text/css" href="/pages/job-order/style.css">
+    <style type="text/css">
+        @media print {
+            body {
+                font-size: 1em;
+            }
+            h1 {
+                font-size: 1em;
+            }
+            th, td {
+                padding: 0;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/helpers.js"></script>
+    <script type="text/javascript" src="/scripts/search-window.js"></script>
+    <script type="text/javascript" src="/scripts/admin.js"></script>
+    <script type="text/javascript" src="/pages/job-order/script.js"></script>
+</head>
+<body ng-keypress="broadcastKeyPress($event)" ng-keydown="broadcastKeyDown($event)">
+    <div ng-view></div>
+</body>
+</html>

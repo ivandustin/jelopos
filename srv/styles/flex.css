@@ -1,0 +1,39 @@
+.flex {
+    display: flex;
+}
+
+.flex.row {
+    flex-direction: row;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.even > * {
+    flex: 1;
+}
+
+.flex-3 {
+    flex: 3;
+}
+
+.flex-4 {
+    flex: 4;
+}
+
+.flex-6 {
+    flex: 6;
+}
+
+.flex-7 {
+    flex: 7;
+}
+
+.flex.row.reverse {
+    flex-direction: row-reverse;
+}
+
+.flex.column.reverse {
+    flex-direction: column-reverse;
+}

@@ -1,0 +1,4 @@
+#!/bin/bash
+JELOPOS_PID=$(cat /tmp/jelopos.pid)
+kill $JELOPOS_PID
+

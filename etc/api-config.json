@@ -1,0 +1,695 @@
+{
+    "api": [
+        {
+            "url": "/api/customer",
+            "table": "customer",
+            "title": "customer",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "name",
+                    "title": "name",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "address",
+                    "title": "address",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "contact",
+                    "title": "contact",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": false,
+                    "real": false
+                }
+            ]
+        },
+        {
+            "url": "/api/sale",
+            "table": "sale",
+            "title": "sale",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "created_at",
+                    "title": "created at",
+                    "internal": -2,
+                    "datetime": -1,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "customer_id",
+                    "title": "customer id",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "job_order",
+                    "title": "job order",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "weight",
+                    "title": "weight",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "username",
+                    "title": "username",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "note",
+                    "title": "note",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "terms",
+                    "title": "terms",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "void",
+                    "title": "void",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                }
+            ]
+        },
+        {
+            "url": "/api/item",
+            "table": "item",
+            "title": "item",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "created_at",
+                    "title": "created at",
+                    "internal": -2,
+                    "datetime": -1,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "name",
+                    "title": "name",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "size",
+                    "title": "size",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "unit",
+                    "title": "unit",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "qty",
+                    "title": "qty",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "weight",
+                    "title": "weight",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                }
+            ]
+        },
+        {
+            "url": "/api/coil_design",
+            "table": "coil_design",
+            "title": "coil design",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "design",
+                    "title": "design",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                }
+            ]
+        },
+        {
+            "url": "/api/coil",
+            "table": "coil",
+            "title": "coil",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "created_at",
+                    "title": "created at",
+                    "internal": -2,
+                    "datetime": -1,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "color",
+                    "title": "color",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "thickness",
+                    "title": "thickness",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "width",
+                    "title": "width",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "length",
+                    "title": "length",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "weight",
+                    "title": "weight",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "serial",
+                    "title": "serial",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "code",
+                    "title": "code",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                }
+            ]
+        },
+        {
+            "url": "/api/precut-coil",
+            "table": "precut_coil",
+            "title": "precut coil",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "created_at",
+                    "title": "created at",
+                    "internal": -2,
+                    "datetime": -1,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "design",
+                    "title": "design",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "color",
+                    "title": "color",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "thickness",
+                    "title": "thickness",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "width",
+                    "title": "width",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "length",
+                    "title": "length",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "code",
+                    "title": "code",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "qty",
+                    "title": "qty",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                }
+            ]
+        },
+        {
+            "url": "/api/sale-item",
+            "table": "sale_item",
+            "title": "sale item",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "created_at",
+                    "title": "created at",
+                    "internal": -2,
+                    "datetime": -1,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "sale_id",
+                    "title": "sale id",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "name",
+                    "title": "name",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "size",
+                    "title": "size",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "qty",
+                    "title": "qty",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "price",
+                    "title": "price",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "item_id",
+                    "title": "item id",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "void",
+                    "title": "void",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                }
+            ]
+        },
+        {
+            "url": "/api/sale-coil",
+            "table": "sale_coil",
+            "title": "sale coil",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "created_at",
+                    "title": "created at",
+                    "internal": -2,
+                    "datetime": -1,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "sale_id",
+                    "title": "sale id",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "design",
+                    "title": "design",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "color",
+                    "title": "color",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "thickness",
+                    "title": "thickness",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "width",
+                    "title": "width",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "code",
+                    "title": "code",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "length",
+                    "title": "length",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": false
+                },
+                {
+                    "name": "qty",
+                    "title": "qty",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "price",
+                    "title": "price",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": false,
+                    "real": true
+                },
+                {
+                    "name": "void",
+                    "title": "void",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                }
+            ]
+        },
+        {
+            "url": "/api/job_order_coil",
+            "table": "job_order_coil",
+            "title": "job order_coil",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "created_at",
+                    "title": "created at",
+                    "internal": -2,
+                    "datetime": -1,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "job_order",
+                    "title": "job order",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "coil_id",
+                    "title": "coil id",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                }
+            ]
+        },
+        {
+            "url": "/api/job_order_precut_coil",
+            "table": "job_order_precut_coil",
+            "title": "job order_precut_coil",
+            "columns": [
+                {
+                    "name": "id",
+                    "title": "id",
+                    "internal": -1,
+                    "datetime": 0,
+                    "required": 0,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "created_at",
+                    "title": "created at",
+                    "internal": -2,
+                    "datetime": -1,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "job_order",
+                    "title": "job order",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                },
+                {
+                    "name": "precut_coil_id",
+                    "title": "precut coil_id",
+                    "internal": 0,
+                    "datetime": 0,
+                    "required": -1,
+                    "integer": true,
+                    "real": false
+                }
+            ]
+        }
+    ]
+}

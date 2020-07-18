@@ -1,0 +1,57 @@
+table, th, td {
+    border: 1px solid black;
+}
+
+table.borderless, table.borderless th, table.borderless td {
+    border: initial;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
+}
+
+thead {
+    text-transform: capitalize;
+}
+
+table input {
+    font-size: 1em;
+    width: 100%;
+    border: none;
+}
+
+table input:disabled {
+    background: none;
+}
+
+table.colon tr > td:first-child:not(:empty):not(.nocolon):after {
+    content: ":";
+}
+
+table.underline tr > td:nth-child(2) {
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+table.tidy tr td:nth-child(1) {
+    text-align: right;
+}
+
+table.tidy tr td:nth-child(2) {
+    text-align: left;
+    padding-left: 0.5em;
+}
+
+table.uppercase-key tr td:first-child {
+    text-transform: uppercase;
+}
+
+table tbody tr.selected {
+    background: black;
+    color: white;
+}

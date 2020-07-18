@@ -1,0 +1,8 @@
+#!/bin/bash
+root=$(dirname "$0")/..
+db="$root/var/jelopos.db"
+schema="$root/lib/schema.sql"
+sqlite3 "$db" <<INPUT
+.read "$schema"
+.exit
+INPUT
