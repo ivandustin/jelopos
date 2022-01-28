@@ -2,6 +2,16 @@
 
 A custom designed inventory and POS system for retailing galvasteel roofing.
 
+```sh
+git clone git@github.com:ivandustin/jelopos.git
+cd jelopos
+npm install
+cd srv
+npm install
+cd ..
+bin/start
+```
+
 ## Reference
 
 ### Access in browser
@@ -29,6 +39,7 @@ Order Slip
 Key | Description
 ----|------------
 g   | Go to order slip ID
+s   | Search order slip by customer
 n   | New order slip
 c   | Coil selection
 i   | Item selection
@@ -39,7 +50,7 @@ Admin Tables
 
 Key | Description
 ----|------------
-+   | Add new row in a table
+`+` | Add new row in a table
 
 
 ### Sorting tables by column

@@ -12,6 +12,14 @@
                     rows="items" 
                     columns="itemColumns" 
                     on-submit="selectItem"></search-window>
+    <search-window ng-if="searchCustomers" 
+                    rows="customers" 
+                    columns="customerColumns" 
+                    on-submit="selectCustomer"></search-window>
+    <search-window ng-if="searchSales" 
+                    rows="searchSalesEntries" 
+                    columns="saleColumns" 
+                    on-submit="gotoSale"></search-window>
     <h1 class="uppercase center">{{sale.void ? 'void' : 'order slip'}}</h1>
     <form id="order-slip"
             ng-submit="submit()">

@@ -262,9 +262,13 @@ var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.utils.masks'])
     $scope.designColumns = ['design']
     $scope.coilColumns  = ['color', 'thickness', 'width', 'code']
     $scope.itemColumns  = ['name', 'size', 'unit', 'qty']
+    $scope.customerColumns = ['name', 'address', 'contact']
+    $scope.saleColumns  = ['id', 'created_at']
     $scope.searchDesigns = false
     $scope.searchCoils  = false
     $scope.searchItems  = false
+    $scope.searchCustomers = false
+    $scope.searchSales  = false
     $scope.saleItems    = []
     $scope.saleCoils    = []
     $scope.sales        = []
@@ -340,6 +344,11 @@ var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.utils.masks'])
                 document.getElementById('sale-' + $scope.sales.length).select()
             }, 0)
         })
+    }
+    $scope.selectCustomer = function(customer) {
+        $scope.searchCustomers = false
+        $scope.searchSales = true
+        $scope.searchSalesEntries = Sale.query({ customer_id: customer.id })
     }
     $scope.submit = function() {
         if ($scope.sale.void && !voidFlag)
@@ -420,14 +429,16 @@ var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.utils.masks'])
         $scope.searchDesigns = false
         $scope.searchCoils = false
         $scope.searchItems = false
+        $scope.searchCustomers = false
+        $scope.searchSales = false
         document.activeElement.blur()
     })
     $scope.$on('keypress g', function() {
         var id = prompt('Go to Order ID')
-        if (!id)
-            return
-        $route.updateParams({id: id})
-        $route.reload()
+        gotoSaleById(id)
+    })
+    $scope.$on('keypress s', function() {
+        $scope.searchCustomers = true
     })
     $scope.$on('keydown f9', function(e) {
         localStorage.removeItem('username')
@@ -455,6 +466,9 @@ var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.utils.masks'])
             }
         }
     })
+    $scope.gotoSale = function(sale) {
+        gotoSaleById(sale.id)
+    }
     function voidOrder() {
         voidFlag            = true
         $scope.sale.void    = 1
@@ -462,5 +476,11 @@ var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.utils.masks'])
             sale.void = 1
         })
         $scope.submit()
+    }
+    function gotoSaleById(id) {
+        if (!id)
+            return
+        $route.updateParams({id: id})
+        $route.reload()
     }
 })
