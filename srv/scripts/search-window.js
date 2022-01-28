@@ -1,6 +1,5 @@
 app
-
-.directive('searchWindow', function(assignVirtualId, getSelectedVirtualId, transpose) {
+.directive('searchWindow', function($filter, assignVirtualId, getSelectedVirtualId, transpose) {
     return {
         templateUrl: '/templates/search-window.html',
         scope: {
@@ -14,6 +13,7 @@ app
             $scope.getSelectedVirtualId = getSelectedVirtualId
             $scope.searchAttributes     = {}
             $scope.rows.$promise.then(assignVirtualId)
+            $scope.rows.$promise.then(transformCreatedAt)
             setTimeout(function() {
                 document.querySelectorAll('.search-window input')[0].focus()
             }, 0)
@@ -41,6 +41,13 @@ app
                 var row = $scope.rows[id]
                 if (row)
                     $scope.onSubmit(row)
+            }
+            function transformCreatedAt(rows) {
+                rows.forEach(function(row) {
+                    if (row['created_at'] !== undefined) {
+                        row['created_at'] = $filter('datetime')(row['created_at'])
+                    }
+                })
             }
         }
     }
