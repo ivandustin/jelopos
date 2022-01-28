@@ -1,0 +1,38 @@
+.keyboard-shortcuts {
+    font-size: 12px;
+    text-align: right;
+}
+
+.keyboard-shortcuts table,
+.keyboard-shortcuts table td {
+    border: none;
+}
+
+.keyboard-shortcuts table td {
+    padding: 4px;
+}
+
+.keyboard-shortcuts .entry {
+    margin-right: 20px;
+}
+
+.keyboard-shortcuts div {
+    display: inline-block;
+}
+
+.keyboard-shortcuts .entry .key {
+    display: inline-block;
+    background-color: #d9d9d9;
+    font-weight: bolder;
+    padding: 6px;
+    border-radius: 4px;
+    text-align: center;
+    width: 12px;
+    margin-right: 4px;
+}
+
+@media print {
+    .keyboard-shortcuts {
+        display: none;
+    }
+}

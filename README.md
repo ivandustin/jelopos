@@ -52,7 +52,6 @@ Key | Description
 ----|------------
 `+` | Add new row in a table
 
-
 ### Sorting tables by column
 
 Click the column name to sort. Click repeatedly to sort in ascending or descending order.

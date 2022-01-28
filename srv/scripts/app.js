@@ -434,7 +434,7 @@ var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.utils.masks'])
         document.activeElement.blur()
     })
     $scope.$on('keypress g', function() {
-        var id = prompt('Go to Order ID')
+        var id = prompt('Enter order ID')
         gotoSaleById(id)
     })
     $scope.$on('keypress s', function() {
